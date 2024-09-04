@@ -14,8 +14,9 @@ import {
 
 export const LiveVideo = () => {
 
-  const appId = '97469662c17f4b65a3669a7863f1c241'
-  // const agoraEngine = useRTCClient( AgoraRTC.createClient({ codec: "vp8", mode: "rtc" })); // Initialize Agora Client
+  const appId = process.env.REACT_APP_AGORA_APP_ID!; // get the app id from the env
+  
+  // const agoraEngine = useRTCClient( AgoraRTC.cyreateClient({ codec: "vp8", mode: "rtc" })); // Initialize Agora Client
   const { channelName } = useParams() //pull the channel name from the param
 
   // set the connection state
@@ -66,7 +67,6 @@ export const LiveVideo = () => {
       </div>
       <div id='localVideo'>
         <LocalUser
-          audioTrack={localMicrophoneTrack}
           videoTrack={localCameraTrack}
           cameraOn={cameraOn}
           micOn={micOn}
